@@ -23,6 +23,8 @@
 //added libraries
 #include <stdlib.h>
 #include "roloFunc.h"
+#include  <unistd.h>
+
 
 static char rolodir[DIRPATHLEN];        /* directory where rolo data is */
 static char filebuf[DIRPATHLEN];        /* stores result of homedir() */
@@ -181,7 +183,7 @@ rolo_only_to_read ()
 }
 
 
-locked_action ()
+void locked_action ()
 {
   if (option_present(OTHERUSERFLAG)) {
      fprintf(stderr,"Someone else is modifying that rolodex, sorry\n");
@@ -194,7 +196,7 @@ locked_action ()
 }
 
 
-rolo_main (argc,argv) int argc; char *argv[];
+void rolo_main (argc,argv) int argc; char *argv[];
 
 {
     int fd,in_use,read_only,rolofd;
